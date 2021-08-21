@@ -1,11 +1,9 @@
 import { createApp } from 'vue'
-// import { createVuetify } from 'vuetify'
-import vuetify from '~/plugins/vuetify'
 import Popup from '~/pages/popup.vue'
+import vuetify from '~/plugins/vuetify'
 import { createStore } from '~/store'
 
 const store = createStore()
-// const vuetify = createVuetify()
 
 const app = createApp(Popup)
 

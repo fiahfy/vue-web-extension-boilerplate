@@ -4,7 +4,7 @@
       <v-container fluid>
         <!-- <v-slider
           v-model="fontSize"
-          :max="64"
+          :max="300"
           label="Font Size"
           class="align-center"
           hide-details
@@ -15,13 +15,12 @@
               class="mt-0 pt-0"
               type="number"
               style="width: 72px"
-              suffix="px"
+              suffix="%"
               hide-details
             />
           </template>
         </v-slider> -->
-        <v-icon>mdi-plus</v-icon>Font Size
-        <input v-model="fontSize" type="number" /> %
+        <div>Font Size <input v-model="fontSize" type="number" /> %</div>
       </v-container>
     </v-main>
   </v-app>
@@ -39,7 +38,7 @@ export default defineComponent({
       },
       set: (value) => {
         settingsStore.setFontSize({
-          fontSize: `${value}px`,
+          fontSize: `${value}%`,
         })
       },
     })

@@ -6,7 +6,7 @@ const updateContent = async (settings: Settings) => {
   oldStyle && oldStyle.remove()
   const style = document.createElement('style')
   style.classList.add('injected-style')
-  style.textContent = `* { font-size: ${settings.fontSize}!important; }`
+  style.textContent = `body { font-size: ${settings.fontSize}!important; }`
   const head = document.documentElement.querySelector('head')
   head?.append(style)
 }

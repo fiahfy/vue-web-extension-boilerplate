@@ -1,10 +1,9 @@
 import { createApp } from 'vue'
-import { createVuetify } from 'vuetify'
 import Options from '~/pages/options.vue'
+import vuetify from '~/plugins/vuetify'
 import { createStore } from '~/store'
 
 const store = createStore()
-const vuetify = createVuetify()
 
 const app = createApp(Options)
 

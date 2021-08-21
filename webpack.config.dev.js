@@ -1,9 +1,10 @@
+const { merge } = require('webpack-merge')
 const config = require('./webpack.config')
 
-module.exports = {
-  ...config,
+module.exports = merge(config, {
+  mode: 'development',
+  devtool: 'eval-source-map',
   entry: {
-    ...config.entry,
-    background: ['crx-hotreload', config.entry.background],
+    background: ['crx-hotreload', './background'],
   },
-}
+})

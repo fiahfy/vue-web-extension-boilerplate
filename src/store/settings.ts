@@ -2,7 +2,7 @@ import { Module, VuexModule, Mutation } from 'vuex-module-decorators'
 import { Settings } from '~/models'
 
 const initialState: Settings = {
-  fontSize: '16px',
+  fontSize: '100%',
 }
 
 @Module({ name: 'settings' })

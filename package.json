@@ -28,7 +28,7 @@
     "html-webpack-plugin": "^5.3.2",
     "husky": "^7.0.1",
     "prettier": "^2.3.2",
-    "sass": "^1.38.0",
+    "sass": "~1.32.13",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.2.1",
     "svg-inline-loader": "^0.8.2",
@@ -57,7 +57,7 @@
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "lint:eslint": "eslint -f codeframe --ext .js,.ts,.vue --ignore-path .gitignore .",
     "lint:prettier": "prettier -c --ignore-path .gitignore .",
-    "package": "npm run build -- --mode=production && mkdir -p dist && zip -r dist/archive.zip app",
+    "package": "npm run build && mkdir -p dist && zip -r dist/archive.zip app",
     "prepare": "husky install",
     "test": "npm run lint"
   }

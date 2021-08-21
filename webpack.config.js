@@ -3,7 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
+  devtool: 'source-map',
   target: 'web',
   context: `${__dirname}/src`,
   entry: {
@@ -80,7 +81,7 @@ module.exports = {
     new VueLoaderPlugin(),
   ],
   resolve: {
-    extensions: ['.js', '.ts', '.vue'],
+    extensions: ['.js', '.mjs', '.ts', '.vue'],
     alias: {
       '~~': `${__dirname}/`,
       '~': `${__dirname}/src/`,
