@@ -6,7 +6,9 @@
 
 ## Features
 
-- WIP
+- TypeScript
+- Vue 3
+- Vuetify 3
 
 ## Screenshots
 

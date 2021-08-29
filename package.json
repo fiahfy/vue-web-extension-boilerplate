@@ -8,7 +8,6 @@
     "url": "https://fiahfy.github.io/"
   },
   "dependencies": {
-    "@fiahfy/semaphore": "^0.0.2",
     "vue": "^3.2.4",
     "vuetify": "^3.0.0-alpha.10",
     "webextension-polyfill": "^0.8.0"
@@ -36,11 +35,10 @@
     "webpack-cli": "^4.8.0"
   },
   "keywords": [
-    "web extension",
     "vue",
     "vuetify",
-    "webpack",
-    "youtube"
+    "web extension",
+    "webpack"
   ],
   "private": true,
   "productName": "Vue Web Extension Boilerplate",
