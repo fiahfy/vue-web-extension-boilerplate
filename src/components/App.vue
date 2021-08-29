@@ -28,18 +28,18 @@
 
 <script lang="ts">
 import { computed, defineComponent } from 'vue'
-import { settingsStore } from '~/store'
+import { useStore } from '~/store'
 
 export default defineComponent({
   setup() {
+    const store = useStore()
+
     const fontSize = computed({
       get: () => {
-        return parseInt(settingsStore.fontSize)
+        return parseInt(store.state.fontSize)
       },
       set: (value) => {
-        settingsStore.setFontSize({
-          fontSize: `${value}%`,
-        })
+        store.setFontSize(`${value}%`)
       },
     })
 

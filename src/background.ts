@@ -1,10 +1,10 @@
 import browser from 'webextension-polyfill'
-import { readyStore } from '~/store'
 import iconOn from '~/assets/icon-on.png'
+import { initializeStore } from '~/store'
 
 const getSettings = async () => {
-  const store = await readyStore()
-  return JSON.parse(JSON.stringify(store.state.settings))
+  const store = initializeStore()
+  return JSON.parse(JSON.stringify(store.state))
 }
 
 const initializeTab = async (tabId: number) => {
