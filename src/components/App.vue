@@ -2,6 +2,7 @@
   <v-app>
     <v-main class="fill-height">
       <v-container fluid>
+        <!-- TODO: use v-slider if implemented -->
         <!-- <v-slider
           v-model="fontSize"
           :max="300"

@@ -1,10 +1,12 @@
 import browser from 'webextension-polyfill'
 import iconOn from '~/assets/icon-on.png'
+import { Settings } from '~/models'
 import { initializeStore } from '~/store'
 
 const getSettings = async () => {
   const store = initializeStore()
-  return JSON.parse(JSON.stringify(store.state))
+  await store.waitForRestore()
+  return JSON.parse(JSON.stringify(store.state)) as Settings
 }
 
 const initializeTab = async (tabId: number) => {
@@ -16,7 +18,16 @@ const initializeTab = async (tabId: number) => {
   return { settings }
 }
 
-const requestContentUpdate = async () => {
+browser.runtime.onMessage.addListener(async (message, sender) => {
+  const { id } = message
+  const { tab } = sender
+  switch (id) {
+    case 'initializeTab':
+      return tab?.id && (await initializeTab(tab.id))
+  }
+})
+
+browser.storage.onChanged.addListener(async () => {
   const settings = await getSettings()
   const tabs = await browser.tabs.query({})
   for (const tab of tabs) {
@@ -28,22 +39,11 @@ const requestContentUpdate = async () => {
         }))
     } catch (e) {} // eslint-disable-line no-empty
   }
-}
+})
 
 browser.tabs.onUpdated.addListener(async (tabId, changeInfo) => {
   if (changeInfo.url) {
     const settings = await getSettings()
     browser.tabs.sendMessage(tabId, { id: 'urlChanged', data: { settings } })
-  }
-})
-
-browser.runtime.onMessage.addListener(async (message, sender) => {
-  const { id } = message
-  const { tab } = sender
-  switch (id) {
-    case 'initializeTab':
-      return tab?.id && (await initializeTab(tab.id))
-    case 'requestContentUpdate':
-      return await requestContentUpdate()
   }
 })

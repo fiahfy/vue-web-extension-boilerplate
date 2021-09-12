@@ -1,1 +1,3 @@
-export * from '~/models/settings'
+export type Settings = {
+  fontSize: string
+}

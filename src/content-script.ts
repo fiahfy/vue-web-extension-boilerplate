@@ -22,8 +22,9 @@ browser.runtime.onMessage.addListener(async (message) => {
 })
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const { settings } = await browser.runtime.sendMessage({
-    id: 'initializeTab',
-  })
+  const { settings }: { settings: Settings } =
+    await browser.runtime.sendMessage({
+      id: 'initializeTab',
+    })
   updateContent(settings)
 })
